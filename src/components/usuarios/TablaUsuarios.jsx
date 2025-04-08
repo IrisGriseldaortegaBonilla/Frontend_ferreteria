@@ -16,7 +16,7 @@ const TablaUsuarios = ({ usuarios, cargando, error }) => {
   // Renderizado de la tabla con los datos recibidos
   return (
     <Table striped bordered hover responsive>
-      <thead className="table-dark">
+      <thead>
         <tr>
           <th>ID Usuario</th>
           <th>Usuario</th>
