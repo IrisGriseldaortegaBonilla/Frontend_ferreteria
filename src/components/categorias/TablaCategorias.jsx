@@ -1,10 +1,19 @@
 // Importaciones necesarias para el componente visual
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import Paginacion from '../ordenamiento/Paginacion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Declaración del componente TablaCategorias que recibe props
-const TablaCategorias = ({ categorias, cargando, error }) => {
+const TablaCategorias = ({ 
+  categorias, 
+  cargando, 
+  error,
+  totalElementos,
+  elementosPorPagina,
+  paginaActual,
+  establecerPaginaActual
+  }) => {
   // Renderizado condicional según el estado recibido por props
   if (cargando) {
     return <div>Cargando categorías...</div>; // Muestra mensaje mientras carga
@@ -15,6 +24,7 @@ const TablaCategorias = ({ categorias, cargando, error }) => {
 
   // Renderizado de la tabla con los datos recibidos
   return (
+    <>
     <Table striped bordered hover responsive>
       <thead>
         <tr>
@@ -33,6 +43,14 @@ const TablaCategorias = ({ categorias, cargando, error }) => {
         ))}
       </tbody>
     </Table>
+
+    <Paginacion
+      elementosPorPagina={elementosPorPagina}
+      totalElementos={totalElementos}
+      paginaActual={paginaActual}
+      establecerPaginaActual={establecerPaginaActual}
+    />
+    </>
   );
 };
 

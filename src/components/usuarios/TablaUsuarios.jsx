@@ -1,10 +1,20 @@
 // Importaciones necesarias para el componente visual
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import Paginacion from "../ordenamiento/Paginacion";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Declaración del componente TablaUsuariosu que recibe props
-const TablaUsuarios = ({ usuarios, cargando, error }) => {
+const TablaUsuarios = ({ 
+    usuarios, 
+    cargando, 
+    error,
+    totalElementos,
+    elementosPorPagina,
+    paginaActual,
+    establecerPaginaActual 
+    }) => {
+
   // Renderizado condicional según el estado recibido por props
   if (cargando) {
     return <div>Cargando usuarios...</div>; // Muestra mensaje mientras carga
@@ -15,8 +25,9 @@ const TablaUsuarios = ({ usuarios, cargando, error }) => {
 
   // Renderizado de la tabla con los datos recibidos
   return (
+    <>
     <Table striped bordered hover responsive>
-      <thead>
+      <thead className="table-dark">
         <tr>
           <th>ID Usuario</th>
           <th>Usuario</th>
@@ -33,6 +44,13 @@ const TablaUsuarios = ({ usuarios, cargando, error }) => {
         ))}
       </tbody>
     </Table>
+    <Paginacion
+  elementosPorPagina={elementosPorPagina}
+  totalElementos={totalElementos}
+  paginaActual={paginaActual}
+  establecerPaginaActual={establecerPaginaActual}
+/>
+</>
   );
 };
 
