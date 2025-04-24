@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import TablaClientes from '../components/clientes/TablaClientes.jsx'; // Ajustado para clientes
 import ModalRegistroCliente from '../components/clientes/ModalRegistroCliente.jsx'; // Ajustado para clientes
 import CuadroBusquedas from '../components/busquedas/CuadroBusquedas.jsx';
+import ModalEliminacionCliente from '../components/clientes/ModalEliminacionCliente.jsx';
 import { Container, Button, Row, Col } from "react-bootstrap";
 
 // Declaración del componente Clientes
@@ -28,6 +29,9 @@ const Clientes = () => {
 
   const [paginaActual, establecerPaginaActual] = useState(1);
   const elementosPorPagina = 2; // Número de elementos por página
+
+  const [mostrarModalEliminacion, setMostrarModalEliminacion] = useState(false);
+  const [clienteAEliminar, setClienteAEliminar] = useState(null);
   
   const obtenerClientes = async () => {
     try {
