@@ -183,7 +183,6 @@ const abrirModalEdicion = (categoria) => {
   setMostrarModalEdicion(true);
 };
 
-
   // Renderizado de la vista
   return (
     <>
