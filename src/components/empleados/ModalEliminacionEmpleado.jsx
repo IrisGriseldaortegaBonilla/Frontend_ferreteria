@@ -1,10 +1,10 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 
-const ModalEliminacionClientes = ({
+const ModalEliminacionEmpleado = ({
   mostrarModalEliminacion,
   setMostrarModalEliminacion,
-  eliminarCliente,
+  eliminarEmpleado,
 }) => {
   return (
     <Modal show={mostrarModalEliminacion} onHide={() => setMostrarModalEliminacion(false)}>
@@ -12,13 +12,13 @@ const ModalEliminacionClientes = ({
         <Modal.Title>Confirmar Eliminación</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        ¿Estás seguro de que deseas eliminar este cliente?
+        ¿Estás seguro de que deseas eliminar este empleado?
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={() => setMostrarModalEliminacion(false)}>
           Cancelar
         </Button>
-        <Button variant="danger" onClick={eliminarCliente}>
+        <Button variant="danger" onClick={eliminarEmpleado}>
           Eliminar
         </Button>
       </Modal.Footer>
@@ -26,4 +26,4 @@ const ModalEliminacionClientes = ({
   );
 };
 
-export default ModalEliminacionClientes;
+export default ModalEliminacionEmpleado;

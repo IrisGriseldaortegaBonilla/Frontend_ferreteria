@@ -1,6 +1,6 @@
 // Importaciones necesarias para el componente visual
 import React from 'react';
-import { Table, Button } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import Paginacion from "../ordenamiento/Paginacion";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -12,8 +12,7 @@ const TablaClientes = ({
     totalElementos,
     elementosPorPagina,
     paginaActual,
-    establecerPaginaActual,
-    abrirModalEliminacion
+    establecerPaginaActual
   }) => {
 
   // Renderizado condicional según el estado recibido por props
@@ -38,7 +37,6 @@ const TablaClientes = ({
           <th>Celular</th>
           <th>Dirección</th>
           <th>Cédula</th>
-          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -52,23 +50,16 @@ const TablaClientes = ({
             <td>{cliente.celular}</td>
             <td>{cliente.direccion}</td>
             <td>{cliente.cedula}</td>
-            <Button
-                variant="outline-danger"
-                size="sm"
-                onClick={() => abrirModalEliminacion(categoria)}
-                >
-                <i className="bi bi-trash"></i>
-                </Button>
           </tr>
         ))}
       </tbody>
     </Table>
     <Paginacion
-  elementosPorPagina={elementosPorPagina}
-  totalElementos={totalElementos}
-  paginaActual={paginaActual}
-  establecerPaginaActual={establecerPaginaActual}
-  />
+      elementosPorPagina={elementosPorPagina}
+      totalElementos={totalElementos}
+      paginaActual={paginaActual}
+      establecerPaginaActual={establecerPaginaActual}
+      />
     </>
   );
 };
